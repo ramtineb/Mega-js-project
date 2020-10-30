@@ -5,13 +5,7 @@ const sendBtn = document.querySelector('#sendBtn'),
     message = document.querySelector('#message'),
     resetBtn = document.querySelector('#resetBtn'),
     form = document.querySelector('#email-form')
-
-
-
-
-
-
-// eventlisteners
+    // eventlisteners
 eventListeners()
 
 function eventListeners() {
@@ -40,30 +34,30 @@ function submitForm(e) {
     e.preventDefault()
 
 
-    const spinners = document.querySelector('#spinner')
-    spinners.style.display = 'block'
+    const spinnersAlt = document.querySelector('#spinner')
+    spinnersAlt.style.display = 'block'
     //make img tag 
-    const sendEmailImg = document.createElement('img')
+    const sendEmail = document.createElement('img')
 
-    sendEmailImg.src = ('../img/mail.gif')
+    sendEmail.src = ('../img/check.gif')
 
-    sendEmailImg.style.display = 'block'
+    sendEmail.style.display = 'block'
 
 
     setTimeout(function () {
         // hide first spinner
-        spinner.style.display = "none";
+        spinnersAlt.style.display = "none";
 
         // append image to the HTML
         const loaders = document.querySelector("#loaders");
-        loaders.appendChild(sendEmailImg);
+        loaders.appendChild(sendEmail);
 
         // reset form and remove
         setTimeout(() => {
-            resetForm();
-            sendEmailImg.remove();
-        }, 5000);
-    }, 3000);
+            resetForm(e);
+            sendEmail.remove();
+        }, 3000);
+    }, 2000);
 }
 
 
@@ -107,6 +101,6 @@ function validateEmail(field) {
 //reset all field with button
 
 function resetForm(e) {
-    e.preventDefault()
-    form.reset()
+    e.preventDefault();
+    form.reset();
 }
